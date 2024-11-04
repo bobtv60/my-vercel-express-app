@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const User = require('./../models/user');
+const User = require('./models/user');
 const bcrypt = require('bcrypt');
 
 app.use(express.json());
