@@ -46,11 +46,11 @@ app.post('/signup', async (req, res) => {
       return res.json({ status: "FAILED", message: "Invalid date of birth entered" });
     } else if (password.length < 8) {
       return res.json({ status: "FAILED", message: "Password is too short" });
-    }*/
+    }
 
     const existingUser = await User.findOne({ email: email });
     if (existingUser) {
-      return res.json({ status: "FAILED", message: "User with the provided email already exists" });
+      return res.json({ status: "FAILED", message: "User with the provided email already exists" });*/
     } else {
       const saltRounds = 10;
       const hashedPassword = await bcrypt.hash(password, saltRounds);
