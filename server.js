@@ -48,7 +48,7 @@ app.post('/signup', async (req, res) => {
       return res.json({ status: "FAILED", message: "Password is too short" });
     }*/
 
-    const existingUser = await User.find({ email });
+    const existingUser = await User.findOne({ email: email });
     if (existingUser.length) {
       return res.json({ status: "FAILED", message: "User with the provided email already exists" });
     }
