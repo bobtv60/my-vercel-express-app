@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(express.json());
+
 // Sample route
 app.get('/', (req, res) => {
   res.send('Hello, World! This is your Express app on Vercel.');
