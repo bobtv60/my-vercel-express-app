@@ -31,7 +31,7 @@ app.post('/submit', (req, res) => {
 app.post('/signup', async (req, res) => {
   try {
     let { name, email, password, dateOfBirth } = req.body;
-    name = name.trim();
+    /*name = name.trim();
     email = email.trim();
     password = password.trim();
     dateOfBirth = dateOfBirth.trim();
@@ -46,7 +46,7 @@ app.post('/signup', async (req, res) => {
       return res.json({ status: "FAILED", message: "Invalid date of birth entered" });
     } else if (password.length < 8) {
       return res.json({ status: "FAILED", message: "Password is too short" });
-    }
+    }*/
 
     const existingUser = await User.find({ email });
     if (existingUser.length) {
