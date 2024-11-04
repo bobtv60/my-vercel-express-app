@@ -29,7 +29,7 @@ app.post('/submit', (req, res) => {
 });
 
 app.post('/signup', async (req, res) => {
-    let { name, email, password, dateOfBirth } = req.body;
+    //let { name, email, password, dateOfBirth } = req.body;
     /*name = name.trim();
     email = email.trim();
     password = password.trim();
