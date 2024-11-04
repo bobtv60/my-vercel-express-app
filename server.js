@@ -61,7 +61,7 @@ app.post('/signup', async (req, res) => {
     res.json({ status: "SUCCESS", message: "Signup successful", data: result });
 });
 
-app.post('/signin', (req, res) => {
+/*app.post('/signin', (req, res) => {
     let {email, password} = req.body;
     email = email.trim();
     password = password.trim();
@@ -111,7 +111,7 @@ app.post('/signin', (req, res) => {
             })
         })
     }
-})
+})*/
 
 
 
