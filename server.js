@@ -29,7 +29,6 @@ app.post('/submit', (req, res) => {
 });
 
 app.post('/signup', async (req, res) => {
-  try {
     let { name, email, password, dateOfBirth } = req.body;
     /*name = name.trim();
     email = email.trim();
@@ -60,11 +59,6 @@ app.post('/signup', async (req, res) => {
       res.json({ status: "SUCCESS", message: "Signup successful", data: result });
     }*/
     res.json({ status: "SUCCESS", message: "Signup successful", data: result });
-    
-  } catch (err) {
-    console.error('Error during signup:', err);
-    res.json({ status: "FAILED", message: err });
-  }
 });
 
 app.post('/signin', (req, res) => {
