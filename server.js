@@ -49,16 +49,18 @@ app.post('/signup', async (req, res) => {
     }*/
 
     const existingUser = await User.findOne({ email: email });
-    if (existingUser.length) {
+    if (existingUser) {
       return res.json({ status: "FAILED", message: "User with the provided email already exists" });
+    } else {
+      const saltRounds = 10;
+      const hashedPassword = await bcrypt.hash(password, saltRounds);
+      const newUser = new User({ name, email, password: hashedPassword, dateOfBirth });
+      const result = await newUser.save();
+
+      res.json({ status: "SUCCESS", message: "Signup successful", data: result });
     }
 
-    const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
-    const newUser = new User({ name, email, password: hashedPassword, dateOfBirth });
-    const result = await newUser.save();
-
-    res.json({ status: "SUCCESS", message: "Signup successful", data: result });
+    
   } catch (err) {
     console.error('Error during signup:', err);
     res.json({ status: "FAILED", message: err });
